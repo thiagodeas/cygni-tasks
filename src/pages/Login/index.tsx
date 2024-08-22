@@ -12,7 +12,7 @@ export const Login = () => {
 
       <div className="flex flex-col items-center justify-around bg-galactic-glow w-[400px] h-[450px] rounded-r-2xl">
           <div className="text-center">
-          <h1 className="text-title-name font-extrabold mt-8 text-space-blue">NomeAplicacao</h1>
+          <h1 className="text-title-name font-extrabold mt-8 text-space-blue">CygniTasks</h1>
           </div>
          <div className="mb-32">
          <h2 className="text-sec-title font-extralight mb-6 text-center text-space-blue">Seja bem-vindo!</h2>
