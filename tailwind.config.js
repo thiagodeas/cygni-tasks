@@ -10,8 +10,8 @@
         'background-grad': 'linear-gradient(135deg, #1d2671 25%, #c33764 100%)',
       },
       fontSize: {
-        'title-name': '3rem',
-        'sec-title': '1.8rem',
+        'main-title': '3rem',
+        'sec-title': '2rem',
       },
       colors: {
         'space-blue': '#1d2671',
