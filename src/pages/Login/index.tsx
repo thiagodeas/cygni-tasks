@@ -2,21 +2,24 @@ export const Login = () => {
   return (
     <div className="flex items-center justify-center bg-background-grad w-screen h-screen">
       <div className="flex items-center justify-center bg-stellar-lavender w-[400px] h-[450px] rounded-l-2xl">
-        <div className="flex flex-col items-center justify-center text-center border-cloudy-rose gap-8">
+        <div className="flex flex-col items-center justify-center text-center border-cloudy-rose gap-6">
           <img src="/assets/space.svg" className="w-[300px]"></img>
-          <p className="text-galactic-glow font-semibold">
+          <p className="text-galactic-glow font-semibold text-[15px]">
             Organize seu universo, uma tarefa de cada vez.
           </p>
         </div>
       </div>
 
-      <div className="flex items-center justify-center bg-galactic-glow w-[400px] h-[450px] rounded-r-2xl">
-        <div className="flex flex-col items-center justify-center">
-          <h1 className="text-title font-semibold">Login</h1>
+      <div className="flex flex-col items-center justify-around bg-galactic-glow w-[400px] h-[450px] rounded-r-2xl">
+          <div className="text-center">
+          <h1 className="text-title-name font-extrabold mt-8 text-space-blue">NomeAplicacao</h1>
+          </div>
+         <div className="mb-32">
+         <h2 className="text-sec-title font-extralight mb-6 text-center text-space-blue">Seja bem-vindo!</h2>
           <form className="flex flex-col items-center justify-center gap-4">
             <div>
               <label>
-                <p>Usuário</p>
+                <p className="text-space-blue">Usuário</p>
                 <input
                   type="text"
                   name="user"
@@ -26,7 +29,7 @@ export const Login = () => {
             </div>
             <div>
               <label>
-                <p>Senha</p>
+                <p className="text-space-blue">Senha </p>
                 <input
                   type="password"
                   name="password"
@@ -35,8 +38,8 @@ export const Login = () => {
               </label>
             </div>
           </form>
+         </div>
         </div>
       </div>
-    </div>
   );
 };
