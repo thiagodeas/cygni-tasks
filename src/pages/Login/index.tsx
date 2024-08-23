@@ -9,10 +9,10 @@ export const Login = () => {
         </div>
       </div>
 
-      <div className="flex flex-col items-center justify-center bg-galactic-glow w-[400px] h-[550px] rounded-r-2xl gap-4">
+      <div className="flex flex-col items-center justify-center bg-white w-[400px] h-[550px] rounded-r-2xl gap-4">
         <div>
           <h1 className="text-main-title font-extrabold text-space-blue">
-            CygniTasks
+            CygniTasks 🚀
           </h1>
           <h2 className="text-sec-title font-extralight text-center text-space-blue">
             Seja bem-vindo!
@@ -22,24 +22,22 @@ export const Login = () => {
         <div>
           <form className="flex flex-col items-center justify-center mt-4">
             <div>
-              <label>
                 <p className="text-space-blue text-[1.3rem] pb-1">Usuário</p>
                 <input
                   type="text"
                   name="user"
-                  className="border border-gray-400 rounded-md outline-none bg-transparent px-2 py-3 mb-3 h-8"
+                  required
+                  className="border border-gray-400 rounded-md outline-none bg-transparent px-2 py-3 mb-3 h-8 w-60"
                 />
-              </label>
             </div>
             <div>
-              <label>
                 <p className="text-space-blue text-[1.3rem] pb-1">Senha </p>
                 <input
                   type="password"
                   name="password"
-                  className="border border-gray-400 rounded-md outline-none bg-transparent px-2 py-3 h-8"
+                  required
+                  className="border border-gray-400 rounded-md outline-none bg-transparent px-2 py-3 h-8 w-60"
                 />
-              </label>
             </div>
             <button className="bg-stellar-lavender w-24 h-10 rounded-lg text-center text-[1.2rem] text-white font-semibold tracking-wider flex items-center justify-center hover:scale-110 transition-all ease-in-out duration-700 mt-8">Login</button>
           </form>

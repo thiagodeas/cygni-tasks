@@ -11,6 +11,7 @@
       },
       fontSize: {
         'main-title': '3rem',
+        'custom-title': '2.5rem',
         'sec-title': '2rem',
       },
       colors: {
