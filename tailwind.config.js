@@ -7,7 +7,7 @@
   theme: {
     extend: {
       backgroundImage: {
-        'background-grad': 'linear-gradient(135deg, #1d2671 25%, #c33764 100%)',
+        'background-grad': 'linear-gradient(-50deg, #4a3f8b 25%, #c33764 130%)',
       },
       fontSize: {
         'main-title': '3rem',

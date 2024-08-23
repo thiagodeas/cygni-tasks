@@ -3,12 +3,9 @@ import { Link } from "react-router-dom";
 export const Login = () => {
   return (
     <>
-      <div className="flex items-center justify-center bg-stellar-lavender w-[400px] h-[550px] rounded-l-2xl">
-        <div className="flex flex-col items-center justify-center text-center gap-6">
-          <img src="/assets/space.svg" className="w-[300px] h-[350px]"></img>
-          <p className="text-white font-light tracking-wide mt-8">
-            Organize seu universo, uma tarefa de cada vez.
-          </p>
+      <div className="flex items-center justify-center bg-background-grad w-[400px] h-[550px] rounded-l-2xl">
+        <div className="flex flex-col items-center justify-center text-center">
+          <img src="/assets/space.svg" className="w-[350px] h-[400px]"></img>
         </div>
       </div>
 
@@ -44,11 +41,11 @@ export const Login = () => {
                 />
               </label>
             </div>
-            <button className="bg-stellar-lavender w-24 h-10 rounded-lg text-center text-[1.2rem] text-white font-semibold tracking-wider flex items-center justify-center hover:scale-110 transition-all ease-in-out duration-700 mt-4">Login</button>
+            <button className="bg-stellar-lavender w-24 h-10 rounded-lg text-center text-[1.2rem] text-white font-semibold tracking-wider flex items-center justify-center hover:scale-110 transition-all ease-in-out duration-700 mt-8">Login</button>
           </form>
         </div>
-        <div className="flex flex-col items-center justify-center text-center mt-10">
-          <p className="pb-2 text-[1.2rem] text-space-blue">
+        <div className="flex flex-col items-center justify-center text-center mt-6">
+          <p className="pb-2 text-[1.2rem] text-space-blue font-light text-center">
             Ainda não possui cadastro?
           </p>
           <Link
