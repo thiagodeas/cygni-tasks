@@ -39,7 +39,7 @@ export const Login = () => {
                   className="border border-gray-400 rounded-md outline-none bg-transparent px-2 py-3 h-8 w-60"
                 />
             </div>
-            <button className="bg-stellar-lavender w-24 h-10 rounded-lg text-center text-[1.2rem] text-white font-semibold tracking-wider flex items-center justify-center hover:scale-110 transition-all ease-in-out duration-700 mt-8">Login</button>
+            <button className="bg-stellar-lavender w-24 h-10 rounded-lg text-center text-[1.2rem] text-white font-semibold tracking-wider flex items-center justify-center hover:scale-110 transition-all ease-in-out duration-700 mt-4">Login</button>
           </form>
         </div>
         <div className="flex flex-col items-center justify-center text-center mt-6">
