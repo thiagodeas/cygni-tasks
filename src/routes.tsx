@@ -1,8 +1,9 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { Login } from "./pages/Login"
-import { Container } from "./components/Container"
+
 import { Register } from "./pages/Register"
 import { Dashboard } from "./pages/Dashboard"
+import { Container } from "./components/Container"
 
 export const AppRoutes = () => (
     <BrowserRouter>
