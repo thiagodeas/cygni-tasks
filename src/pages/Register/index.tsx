@@ -10,7 +10,7 @@ export const Register = () => {
     const handleRegister = async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
       try {
-        const _response = await api.post('/user', {
+          await api.post('/user', {
           username: newUser,
           password: newPassword,
         });
