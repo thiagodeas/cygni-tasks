@@ -51,8 +51,9 @@
       },
       fontSize: {
         'main-title': '3rem',
-        'custom-title': '2.5rem',
         'sec-title': '2rem',
+        'custom-title': '2.5rem',
+        'options-title': '1.125rem'
       },
       colors: {
         'space-blue': '#1d2671',
