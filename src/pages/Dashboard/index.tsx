@@ -1,12 +1,22 @@
 import { useState } from "react";
 import { IoPlanetOutline } from "react-icons/io5";
 import { api } from "../../api";
+import { Task } from "../../components/Task";
+
+interface TaskData {
+  id: string;
+  description: string;
+  completed: boolean;
+}
 
 export const Dashboard: React.FC = () => {
   const [task, setTask] = useState("");
+  const [tasks, setTasks] = useState<TaskData[]>([]);
 
   const createTask = async () => {
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem('token');
+    console.log("Token recuperado do localStorage: ", token);
+
 
     if (!token) {
       console.error("Token não encontrado!");
@@ -25,12 +35,21 @@ export const Dashboard: React.FC = () => {
 
       if (response.status === 201) {
         console.log("Tarefa criada com sucesso!");
+        setTasks([...tasks, {
+          id: response.data.id,
+          description: task,
+          completed: false
+        }])
         setTask("");
       }
 
     } catch (error) {
       console.error("Não foi possível criar nova tarefa ", error);
     }
+  };
+
+  const handleCheckboxChange = (id: string) => {
+    setTasks(tasks.map(task => task.id === id ? {...task, completed: !task.completed } : task));
   }
 
   return (
@@ -60,15 +79,33 @@ export const Dashboard: React.FC = () => {
             <div className="flex items-center justify-center w-full border-cloudy-rose border-y-[1px] py-2 gap-32">
               <span className="p-2 text-options-title pr-8">Prioridade</span>
               <div className="flex gap-2">
-                <input type="radio" name="priority" className="w-4" />
+                <input
+                type="radio" 
+                name="priority" 
+                id="low-priority" 
+                className="hidden" 
+                />
+                <label htmlFor="low-priority" className="radio-label"></label>
                 Baixa
               </div>
               <div className="flex gap-2">
-                <input type="radio" name="priority" className="w-4" />
+                <input 
+                type="radio" 
+                name="priority" 
+                id="medium-priority" 
+                className="hidden" 
+                />
+                <label htmlFor="medium-priority" className="radio-label"></label>
                 Média
               </div>
               <div className="flex gap-2">
-                <input type="radio" name="priority" className="w-4" />
+                <input 
+                type="radio" 
+                name="priority" 
+                id="high-priority" 
+                className="hidden" 
+                />
+                <label htmlFor="high-priority" className="radio-label"></label>
                 Alta
               </div>
             </div>
@@ -81,6 +118,17 @@ export const Dashboard: React.FC = () => {
           </div>
         )}
       </div>
+
+      {tasks.map(task => (
+        <Task
+          key={task.id}
+          id={task.id}
+          description={task.description}
+          checked={task.completed}
+          onChange={handleCheckboxChange}
+        />
+      ))}
+    
     </div>
   );
 };

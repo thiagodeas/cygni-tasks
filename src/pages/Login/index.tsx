@@ -20,8 +20,15 @@ export const Login = () => {
         password: password,
       });
 
-      localStorage.setItem('token', response.data.token);
-      navigate('/dashboard');
+      console.log("Resposta do Login: ", response.data);
+
+      if (response.data.token) {
+        localStorage.setItem('token', response.data.token);
+        navigate('/dashboard');
+      } else {
+        console.error("Token não encontrado na resposta!")
+      }
+      
     } catch (error) {
       console.error('Erro de autenticação', error);
     }
