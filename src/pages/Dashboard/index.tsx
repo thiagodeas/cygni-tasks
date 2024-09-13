@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IoPlanetOutline } from "react-icons/io5";
 import { api } from "../../api";
 import { Task } from "../../components/Task";
@@ -15,6 +15,31 @@ export const Dashboard: React.FC = () => {
   const [tasks, setTasks] = useState<TaskData[]>([]);
   const [priority, setPriority] = useState("low");
 
+  useEffect(() => {
+    const fetchTasks = async () => {
+      const token = localStorage.getItem('token');
+
+      if (!token) {
+        console.error("Token não encontrado!")
+        return;
+      }
+
+      try {
+        const response = await api.get('/task/user', {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        setTasks(response.data);
+      } catch (error) {
+        console.error("Não foi possível carregar as tarefas! ", error);
+      }
+    };
+
+    fetchTasks();
+  }, [])
+
   const createTask = async () => {
     const token = localStorage.getItem('token');
 
@@ -26,6 +51,7 @@ export const Dashboard: React.FC = () => {
     try {
       const response = await api.post('/task', {
         description: task,
+        priority: priority, 
       },
       {headers:{
         Authorization: `Bearer ${token}`,

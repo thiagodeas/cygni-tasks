@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { api } from "../../api";
+import { AxiosError } from "axios";
 
 export const Login = () => {
 
@@ -10,6 +11,7 @@ export const Login = () => {
 
   const [user, setUser] = useState <string>('');
   const [password, setPassword] = useState <string>('');
+  const [error, setError] = useState <string> ('');
   const navigate = useNavigate();
 
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -28,7 +30,13 @@ export const Login = () => {
       }
       
     } catch (error) {
-      console.error('Erro de autenticação', error);
+      if (error instanceof AxiosError) {
+        const errorMsg = error.response?.data?.message || 'Erro de autenticação desconhecido'
+        setError('Erro de autenticação: ' + errorMsg);
+      } else {
+        setError('Erro de autenticação: Erro desconhecido')
+      }
+      
     }
   }
 
@@ -77,7 +85,14 @@ export const Login = () => {
             </div>
             <button type="submit" className="bg-stellar-lavender w-24 h-10 rounded-lg text-center text-[1.2rem] text-white font-semibold tracking-wider flex items-center justify-center hover:scale-110 transition-all ease-in-out duration-700 mt-4">Login</button>
           </form>
+
+          {error && (
+            <p className="mt-4 text-[13px] text-cloudy-rose">
+              {error}
+            </p>
+          )}
         </div>
+    
         <div className="flex flex-col items-center justify-center text-center mt-6">
           <p className="pb-2 text-[1.2rem] text-space-blue font-light text-center">
             Ainda não possui cadastro?
