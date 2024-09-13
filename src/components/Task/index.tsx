@@ -2,12 +2,25 @@ interface TaskProps {
   description: string;
   id: string,
   checked: boolean,
+  priority: string,
   onChange: (id:string) => void;
 }
 
-export const Task: React.FC<TaskProps> = ({ description, id, checked, onChange }) => {
+export const Task: React.FC<TaskProps> = ({ description, id, priority, checked, onChange }) => {
+  const getPriorityClass = () => {
+    switch (priority) {
+      case "high":
+        return "text-red-500";
+      case "medium":
+        return "text-yellow-500";
+      case "low":
+        default:
+          return "text-green-500";
+    }
+  }
+
   return (
-    <div className="flex items-center justify-center border-[1px] border-cloudy-rose h-[50px] w-[800px] rounded-lg">
+    <div className={`flex items-center justify-center border-[1px] bg-[#290D34] opacity-95 border-cloudy-rose h-[50px] w-[800px] rounded-lg ${getPriorityClass()}`}>
       <div className="flex items-center justify-center gap-2">
         <input
         type="checkbox" 
@@ -18,6 +31,15 @@ export const Task: React.FC<TaskProps> = ({ description, id, checked, onChange }
         />
         <label htmlFor={id} className="radio-label"></label>
         <span className="text-galactic-glow">{description}</span>
+        <span className="ml-4 text-sm">
+          {priority === "high"
+          ? "Alta prioridade"
+          : priority === "medium"
+          ? "Média prioridade"
+          : priority === "low"
+          ? "Baixa prioridade"
+        : null}
+        </span>
       </div>
     </div>
   );

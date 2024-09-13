@@ -100,6 +100,7 @@ export const Register = () => {
 
       <Popup
         message="Usuário cadastrado com sucesso!"
+        buttonMessage="Ir para página de Login"
         isOpen={isPopupOpen}
         onClose={handleClosePopup}
       />

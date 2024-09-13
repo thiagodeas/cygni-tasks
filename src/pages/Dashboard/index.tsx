@@ -7,16 +7,16 @@ interface TaskData {
   id: string;
   description: string;
   completed: boolean;
+  priority: string;
 }
 
 export const Dashboard: React.FC = () => {
   const [task, setTask] = useState("");
   const [tasks, setTasks] = useState<TaskData[]>([]);
+  const [priority, setPriority] = useState("low");
 
   const createTask = async () => {
     const token = localStorage.getItem('token');
-    console.log("Token recuperado do localStorage: ", token);
-
 
     if (!token) {
       console.error("Token não encontrado!");
@@ -30,17 +30,17 @@ export const Dashboard: React.FC = () => {
       {headers:{
         Authorization: `Bearer ${token}`,
       },
-      }
-      );
+      });
 
       if (response.status === 201) {
-        console.log("Tarefa criada com sucesso!");
         setTasks([...tasks, {
           id: response.data.id,
           description: task,
-          completed: false
+          completed: false,
+          priority: priority
         }])
         setTask("");
+        setPriority("low");
       }
 
     } catch (error) {
@@ -53,8 +53,8 @@ export const Dashboard: React.FC = () => {
   }
 
   return (
-    <div className="bg-[#290D34] w-screen h-screen flex flex-col items-center justify-center gap-8">
-      <h1 className="text-custom-title text-galactic-glow text-center font-semibold">
+    <div className="bg-[#290D34] w-screen h-screen flex flex-col items-center justify-center gap-4">
+      <h1 className="text-custom-title text-galactic-glow text-center font-bold">
         Tarefas do dia
       </h1>
 
@@ -83,6 +83,9 @@ export const Dashboard: React.FC = () => {
                 type="radio" 
                 name="priority" 
                 id="low-priority" 
+                value="low"
+                checked={priority === "low"}
+                onChange={() => setPriority("low")}
                 className="hidden" 
                 />
                 <label htmlFor="low-priority" className="radio-label"></label>
@@ -93,6 +96,9 @@ export const Dashboard: React.FC = () => {
                 type="radio" 
                 name="priority" 
                 id="medium-priority" 
+                value="medium"
+                checked={priority === "medium"}
+                onChange={() => setPriority("medium")}
                 className="hidden" 
                 />
                 <label htmlFor="medium-priority" className="radio-label"></label>
@@ -103,6 +109,9 @@ export const Dashboard: React.FC = () => {
                 type="radio" 
                 name="priority" 
                 id="high-priority" 
+                value="high"
+                checked={priority === "high"}
+                onChange={() => setPriority("high")}
                 className="hidden" 
                 />
                 <label htmlFor="high-priority" className="radio-label"></label>
@@ -125,6 +134,7 @@ export const Dashboard: React.FC = () => {
           id={task.id}
           description={task.description}
           checked={task.completed}
+          priority={task.priority}
           onChange={handleCheckboxChange}
         />
       ))}

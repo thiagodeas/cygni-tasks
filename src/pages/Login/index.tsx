@@ -20,8 +20,6 @@ export const Login = () => {
         password: password,
       });
 
-      console.log("Resposta do Login: ", response.data);
-
       if (response.data.token) {
         localStorage.setItem('token', response.data.token);
         navigate('/dashboard');
