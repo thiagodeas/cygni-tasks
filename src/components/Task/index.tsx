@@ -30,7 +30,7 @@ export const Task: React.FC<TaskProps> = ({ description, id, priority, checked, 
         className="hidden" 
         />
         <label htmlFor={id} className="radio-label"></label>
-        <span className="text-galactic-glow">{description}</span>
+        <span className={`text-galactic-glow transition-all duration-500 ${checked? "line-through opacity-60" : "opacity-100"}`}>{description}</span>
         <span className="ml-4 text-sm">
           {priority === "high"
           ? "Alta prioridade"
