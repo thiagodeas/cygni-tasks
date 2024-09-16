@@ -42,7 +42,7 @@ export const Login = () => {
 
 
   return (
-    <>
+    <div className="flex justify-center items-center h-full w-full bg-cover bg-[url('/assets/bg-galaxy.jpeg')]">
       <div className="flex items-center justify-center bg-background-grad w-[400px] h-[550px] rounded-l-2xl">
         <div className="flex flex-col items-center justify-center text-center">
           <img src="/assets/space.svg" className="w-[350px] h-[400px]"></img>
@@ -105,6 +105,6 @@ export const Login = () => {
           </Link>
         </div>
       </div>
-    </>
+    </div>
   );
 };

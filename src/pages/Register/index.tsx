@@ -18,7 +18,8 @@ export const Register = () => {
         password: newPassword,
       });
 
-      console.log("Usuário cadastrado!");
+      setNewUser("");
+      setNewPassword("");
       setIsPopupOpen(true);
     } catch (error) {
       console.error("Erro ao cadastrar novo usuário", error);
@@ -30,8 +31,8 @@ export const Register = () => {
   };
 
   return (
-    <>
-      <div className="flex flex-col items-center justify-center bg-white w-[400px] h-[550px] rounded-l-2xl">
+    <div className="flex justify-center items-center h-full w-full bg-cover bg-[url('/assets/bg-galaxy.jpeg')]">
+      <div className="flex flex-col items-center justify-center w-[400px] h-[550px] rounded-l-2xl bg-white">
         <div className="flex flex-col items-center justify-center text-center mb-6">
           <h1 className="text-main-title font-extrabold text-space-blue text-center">
             CygniTasks 🚀
@@ -104,6 +105,6 @@ export const Register = () => {
         isOpen={isPopupOpen}
         onClose={handleClosePopup}
       />
-    </>
+    </div>
   );
 };
