@@ -116,7 +116,7 @@ export const Dashboard: React.FC = () => {
   }
 
   return (
-    <div className="bg-[#290D34] w-screen h-screen flex flex-col items-center justify-start py-8 gap-4 overflow-auto">
+    <div className="bg-[#290D34] bg-stars-pattern w-screen h-screen flex flex-col items-center justify-start py-8 gap-4 overflow-auto">
       <h1 className="text-custom-title text-galactic-glow text-center font-bold mt-12">
         Tarefas do dia
       </h1>

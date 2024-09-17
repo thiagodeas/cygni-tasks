@@ -23,7 +23,7 @@ export const Task: React.FC<TaskProps> = ({ description, id, priority, checked, 
   }
 
   return (
-    <div className={`flex items-center justify-center border-[1px] text-center bg-[#290D34] opacity-95 border-cloudy-rose h-[50px] w-[800px] rounded-lg ${getPriorityClass()}`}>
+    <div className={`flex items-center justify-center border-[1px] text-center bg-transparent border-cloudy-rose h-[50px] w-[800px] rounded-lg ${getPriorityClass()}`}>
       <div className="flex items-center justify-between py-1 h-full w-full text-center">
 
        <div className="flex items-center justify-center text-center py-1 px-4">
@@ -49,7 +49,7 @@ export const Task: React.FC<TaskProps> = ({ description, id, priority, checked, 
         : null}
         </span>
       <button onClick={() => {deleteTask(id)}}>
-          <FaRegTrashAlt className="flex justify-center items-center text-[1.2rem] text-cloudy-rose cursor-pointer hover:scale-125 transition-all duration-500" />
+          <FaRegTrashAlt className="flex justify-center items-center text-[1.2rem] text-cloudy-rose cursor-pointer hover:scale-125 transition-all duration-500 ease-in-out" />
         </button>
       </div>
        
