@@ -95,7 +95,7 @@ export const Register = () => {
         </div>
       </div>
 
-      <div className="flex flex-col items-center justify-center bg-[#290D34] bg-stars-pattern w-[400px] h-[550px] rounded-r-2xl gap-4">
+      <div className="flex flex-col items-center justify-center bg-[#290D34] bg-stars-pattern2 w-[400px] h-[550px] rounded-r-2xl gap-4">
         <img src="/assets/myu.gif" className="h-72 w-72 rounded-full"></img>
       </div>
 

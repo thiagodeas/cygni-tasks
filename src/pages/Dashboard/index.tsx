@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { IoPlanetOutline } from "react-icons/io5";
+import { IoPlanetOutline, IoFilterOutline } from "react-icons/io5";
 import { api } from "../../api";
 import { Task } from "../../components/Task";
 import { useNavigate } from "react-router-dom";
@@ -17,6 +17,7 @@ export const Dashboard: React.FC = () => {
   const [tasks, setTasks] = useState<TaskData[]>([]);
   const [priority, setPriority] = useState("low");
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [filterOrder, setFilterOrder] = useState<"asc" | "desc">("desc"); 
 
   const navigate = useNavigate();
 
@@ -113,7 +114,24 @@ export const Dashboard: React.FC = () => {
   const handleClosePopup = () => {
     setIsPopupOpen(false);
     navigate("/dashboard");
-  }
+  };
+
+  const handleFilterClick = () => {
+    setFilterOrder(prevOrder => (prevOrder === "desc" ? "asc" : "desc"));
+  };
+
+  const priorityOrder = ["high", "medium", "low"];
+
+  const sortedTasks = [...tasks].sort((a, b) => {
+    const indexA = priorityOrder.indexOf(a.priority);
+    const indexB = priorityOrder.indexOf(b.priority);
+
+    if (filterOrder === "asc") {
+      return indexA - indexB;
+    } else {
+      return indexB - indexA;
+    }
+  });
 
   return (
     <div className="bg-[#290D34] bg-stars-pattern w-screen h-screen flex flex-col items-center justify-start py-8 gap-4 overflow-auto">
@@ -133,9 +151,16 @@ export const Dashboard: React.FC = () => {
           className="bg-transparent outline-none w-full h-10 py-10 font-light text-galactic-glow text-center placeholder:tracking-wide placeholder:text-galactic-glow placeholder:font-light"
         />
 
+        <button
+          onClick={handleFilterClick}
+          className="absolute right-60 top-[180px] transform -translate-y-1/2 pl-2 rounded-lg font-semibold text-galactic-glow flex items-center"
+        >
+          <IoFilterOutline className="text-[1.5rem]" />
+        </button>
+
         {task && (
           <div className="flex flex-col items-center justify-start w-full text-galactic-glow h-[50px] transition-all ease-in-out duration-700">
-            <div className="flex items-center justify-center w-full border-cloudy-rose border-y-[1px] py-2 gap-32">
+            <div className="flex items-center justify-start border-cloudy-rose border-y-[1px] py-2 gap-32">
               <span className="p-2 text-options-title pr-8">Prioridade</span>
               <div className="flex items-center gap-2">
                 <input
@@ -189,7 +214,7 @@ export const Dashboard: React.FC = () => {
       </div>
 
       <div className="flex flex-col items-center mt-4 w-full h-[400px] gap-4 overflow-auto scroll-container">
-        {tasks.map(task => (
+        {sortedTasks.map(task => (
           <Task
             key={task.id}
             id={task.id}
@@ -202,10 +227,10 @@ export const Dashboard: React.FC = () => {
         ))}
       </div>
       <MiniPopup
-      message="Tarefa deletada!"
-      buttonMessage="Voltar"
-      onClose={handleClosePopup}
-      isOpen={isPopupOpen}
+        message="Tarefa deletada!"
+        buttonMessage="Voltar"
+        onClose={handleClosePopup}
+        isOpen={isPopupOpen}
       />
     </div>
   );

@@ -31,6 +31,29 @@
           radial-gradient(circle at 90% 10%, rgba(255, 255, 255, 0.8) 1px, transparent 1px),
           linear-gradient(180deg, #171f5c, #1d2671)
         `,
+        'stars-pattern2':
+        `
+          radial-gradient(circle at 5% 10%, rgba(255, 255, 255, 0.8) 1px, transparent 1px),
+          radial-gradient(circle at 15% 25%, rgba(255, 255, 255, 0.8) 1px, transparent 1px),
+          radial-gradient(circle at 20% 40%, rgba(255, 255, 255, 0.8) 1px, transparent 1px),
+          radial-gradient(circle at 25% 15%, rgba(255, 255, 255, 0.8) 1px, transparent 1px),
+          radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.8) 1px, transparent 1px),
+          radial-gradient(circle at 40% 50%, rgba(255, 255, 255, 0.8) 1px, transparent 1px),
+          radial-gradient(circle at 50% 60%, rgba(255, 255, 255, 0.8) 1px, transparent 1px),
+          radial-gradient(circle at 60% 30%, rgba(255, 255, 255, 0.8) 1px, transparent 1px),
+          radial-gradient(circle at 70% 80%, rgba(255, 255, 255, 0.8) 1px, transparent 1px),
+          radial-gradient(circle at 75% 45%, rgba(255, 255, 255, 0.8) 1px, transparent 1px),
+          radial-gradient(circle at 85% 70%, rgba(255, 255, 255, 0.8) 1px, transparent 1px),
+          radial-gradient(circle at 90% 20%, rgba(255, 255, 255, 0.8) 1px, transparent 1px),
+          radial-gradient(circle at 95% 50%, rgba(255, 255, 255, 0.8) 1px, transparent 1px),
+          radial-gradient(circle at 65% 55%, rgba(255, 255, 255, 0.8) 1px, transparent 1px),
+          radial-gradient(circle at 55% 25%, rgba(255, 255, 255, 0.8) 1px, transparent 1px),
+          radial-gradient(circle at 30% 65%, rgba(255, 255, 255, 0.8) 1px, transparent 1px),
+          radial-gradient(circle at 45% 75%, rgba(255, 255, 255, 0.8) 1px, transparent 1px),
+          radial-gradient(circle at 10% 85%, rgba(255, 255, 255, 0.8) 1px, transparent 1px),
+          radial-gradient(circle at 90% 10%, rgba(255, 255, 255, 0.8) 1px, transparent 1px),
+          linear-gradient(180deg, #290D34, #290D34)
+        `,
       },
       fontSize: {
         'main-title': '3rem',
