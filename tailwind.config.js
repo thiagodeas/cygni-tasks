@@ -29,7 +29,7 @@
           radial-gradient(circle at 45% 75%, rgba(255, 255, 255, 0.8) 1px, transparent 1px),
           radial-gradient(circle at 10% 85%, rgba(255, 255, 255, 0.8) 1px, transparent 1px),
           radial-gradient(circle at 90% 10%, rgba(255, 255, 255, 0.8) 1px, transparent 1px),
-          linear-gradient(180deg, #171f5c, #1d2671)
+          linear-gradient(180deg, #171f5c, #171D5B)
         `,
         'stars-pattern2':
         `
