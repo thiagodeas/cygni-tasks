@@ -13,5 +13,6 @@ CygniTasks é um gerenciador de tarefas com uma pegada espacial, inspirado na co
 
 ## Funcionalidades
 
+- **Tela de Login/Cadastro**: Autenticação com JWT.
 - **Gerenciamento de Tarefas**: Interface para criar, visualizar, editar e excluir tarefas.
 - **Roteamento de Páginas**: Navegação entre diferentes páginas para organizar as tarefas e exibir informações detalhadas.
